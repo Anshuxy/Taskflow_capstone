@@ -45,9 +45,7 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* Search and Auth */}
           <div className="hidden md:flex items-center space-x-4">
-            {/* Search Bar */}
             <div className="relative">
               {isSearchOpen ? (
                 <div className="flex items-center">
@@ -76,8 +74,6 @@ const Navbar = () => {
                 </button>
               )}
             </div>
-
-            {/* Auth Buttons */}
             <button 
               onClick={() => alert('Login functionality - Connect to your authentication system')}
               className="px-4 py-2 text-gray-700 hover:text-purple-600 transition-colors duration-200 font-medium"
@@ -91,8 +87,6 @@ const Navbar = () => {
               Sign Up
             </button>
           </div>
-
-          {/* Mobile menu button */}
           <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -106,8 +100,6 @@ const Navbar = () => {
             </button>
           </div>
         </div>
-
-        {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="md:hidden border-t border-gray-200">
             <div className="px-2 pt-2 pb-3 space-y-1">

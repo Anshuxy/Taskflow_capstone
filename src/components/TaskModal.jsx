@@ -70,7 +70,6 @@ const TaskModal = ({ isOpen, onClose, editTask = null }) => {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
       <div className="bg-white rounded-2xl max-w-md w-full max-h-[90vh] overflow-y-auto">
-        {/* Header */}
         <div className="flex items-center justify-between p-6 border-b border-gray-200">
           <h2 className="text-xl font-semibold text-gray-900">
             {editTask ? 'Edit Task' : 'Create New Task'}
@@ -82,10 +81,7 @@ const TaskModal = ({ isOpen, onClose, editTask = null }) => {
             <X className="h-5 w-5" />
           </button>
         </div>
-
-        {/* Form */}
         <form onSubmit={handleSubmit} className="p-6 space-y-6">
-          {/* Title */}
           <div>
             <label htmlFor="title" className="block text-sm font-medium text-gray-700 mb-2">
               Task Title *
@@ -101,8 +97,6 @@ const TaskModal = ({ isOpen, onClose, editTask = null }) => {
               required
             />
           </div>
-
-          {/* Description */}
           <div>
             <label htmlFor="description" className="block text-sm font-medium text-gray-700 mb-2">
               Description
@@ -117,8 +111,6 @@ const TaskModal = ({ isOpen, onClose, editTask = null }) => {
               placeholder="Add more details about this task..."
             />
           </div>
-
-          {/* Category & Priority */}
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label htmlFor="category" className="block text-sm font-medium text-gray-700 mb-2">
@@ -158,8 +150,6 @@ const TaskModal = ({ isOpen, onClose, editTask = null }) => {
               </select>
             </div>
           </div>
-
-          {/* Due Date */}
           <div>
             <label htmlFor="dueDate" className="block text-sm font-medium text-gray-700 mb-2">
               <Calendar className="inline h-4 w-4 mr-1" />
@@ -174,8 +164,6 @@ const TaskModal = ({ isOpen, onClose, editTask = null }) => {
               className="w-full px-4 py-3 border border-purple-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200 shadow-sm"
             />
           </div>
-
-          {/* Reminder */}
           <div>
             <label htmlFor="reminder" className="block text-sm font-medium text-gray-700 mb-2">
               <Clock className="inline h-4 w-4 mr-1" />
@@ -193,8 +181,6 @@ const TaskModal = ({ isOpen, onClose, editTask = null }) => {
               Set a reminder to get notified about this task
             </p>
           </div>
-
-          {/* Actions */}
           <div className="flex space-x-3 pt-4">
             <button
               type="button"

@@ -52,7 +52,6 @@ const TaskCard = ({ task, onToggle, onEdit, onDelete }) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Header */}
       <div className="flex items-start justify-between mb-3">
         <div className="flex items-center space-x-3">
           <button
@@ -77,8 +76,6 @@ const TaskCard = ({ task, onToggle, onEdit, onDelete }) => {
             {task.title}
           </h3>
         </div>
-
-        {/* Actions */}
         <div className={`flex items-center space-x-2 transition-opacity duration-200 ${
           isHovered ? 'opacity-100' : 'opacity-0'
         }`}>
@@ -96,8 +93,6 @@ const TaskCard = ({ task, onToggle, onEdit, onDelete }) => {
           </button>
         </div>
       </div>
-
-      {/* Description */}
       {task.description && (
         <p className={`text-sm mb-4 leading-relaxed ${
           task.completed ? 'text-gray-400' : 'text-gray-600'
@@ -105,8 +100,6 @@ const TaskCard = ({ task, onToggle, onEdit, onDelete }) => {
           {task.description}
         </p>
       )}
-
-      {/* Tags */}
       <div className="flex flex-wrap items-center gap-2 mb-4">
         <span className={`px-3 py-1 rounded-full text-xs font-medium border ${getCategoryColor(task.category)}`}>
           {task.category}
@@ -115,10 +108,7 @@ const TaskCard = ({ task, onToggle, onEdit, onDelete }) => {
           {task.priority} priority
         </span>
       </div>
-
-      {/* Footer */}
       <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-        {/* Due Date */}
         {task.dueDate && (
           <div className={`flex items-center space-x-2 text-sm ${
             isOverdue(task.dueDate)
@@ -138,8 +128,6 @@ const TaskCard = ({ task, onToggle, onEdit, onDelete }) => {
             </span>
           </div>
         )}
-
-        {/* Reminder */}
         {task.reminder && (
           <div className={`flex items-center space-x-2 text-sm ${
             task.completed ? 'text-gray-400' : 'text-gray-500'
@@ -148,8 +136,6 @@ const TaskCard = ({ task, onToggle, onEdit, onDelete }) => {
             <span>Reminder set</span>
           </div>
         )}
-
-        {/* Created Date */}
         {!task.dueDate && !task.reminder && (
           <div className="text-xs text-gray-400">
             Created {formatDate(task.createdAt)}
