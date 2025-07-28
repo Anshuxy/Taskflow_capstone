@@ -1,7 +1,13 @@
-import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { CheckSquare, Menu, X, Search } from 'lucide-react';
-import { useTask } from '../context/TaskContext';
+import React, { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { CheckSquare, Menu, X, Search } from "lucide-react";
+import { useTask } from "../context/TaskContext";
+import {
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  UserButton,
+} from "@clerk/clerk-react";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -10,10 +16,10 @@ const Navbar = () => {
   const { setSearchTerm, searchTerm } = useTask();
 
   const navigation = [
-    { name: 'Home', href: '/' },
-    { name: 'About', href: '/about' },
-    { name: 'Features', href: '/features' },
-    { name: 'Blog', href: '/blog' }
+    { name: "Home", href: "/" },
+    { name: "About", href: "/about" },
+    { name: "Features", href: "/features" },
+    { name: "Blog", href: "/blog" },
   ];
 
   const isActive = (path) => location.pathname === path;
@@ -36,8 +42,8 @@ const Navbar = () => {
                 to={item.href}
                 className={`px-3 py-2 rounded-md transition-all duration-200 ${
                   isActive(item.href)
-                    ? 'text-purple-600 bg-purple-50 font-medium'
-                    : 'text-gray-700 hover:text-purple-600 hover:bg-purple-50'
+                    ? "text-purple-600 bg-purple-50 font-medium"
+                    : "text-gray-700 hover:text-purple-600 hover:bg-purple-50"
                 }`}
               >
                 {item.name}
@@ -74,18 +80,18 @@ const Navbar = () => {
                 </button>
               )}
             </div>
-            <button 
-              onClick={() => alert('Login functionality - Connect to your authentication system')}
+            <button
+              
               className="px-4 py-2 text-gray-700 hover:text-purple-600 transition-colors duration-200 font-medium"
             >
-              Login
+              <SignedOut>
+        <SignInButton />
+      </SignedOut>
+      <SignedIn>
+        <UserButton />
+      </SignedIn>
             </button>
-            <button 
-              onClick={() => alert('Sign Up functionality - Connect to your authentication system')}
-              className="px-6 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg hover:from-purple-700 hover:to-pink-700 transition-all duration-200 transform hover:scale-105 shadow-lg"
-            >
-              Sign Up
-            </button>
+            
           </div>
           <div className="md:hidden">
             <button
@@ -110,8 +116,8 @@ const Navbar = () => {
                   onClick={() => setIsMenuOpen(false)}
                   className={`block px-3 py-2 rounded-md transition-all duration-200 ${
                     isActive(item.href)
-                      ? 'text-purple-600 bg-purple-50 font-medium'
-                      : 'text-gray-700 hover:text-purple-600 hover:bg-purple-50'
+                      ? "text-purple-600 bg-purple-50 font-medium"
+                      : "text-gray-700 hover:text-purple-600 hover:bg-purple-50"
                   }`}
                 >
                   {item.name}
@@ -127,17 +133,14 @@ const Navbar = () => {
                     className="w-full px-4 py-2 border border-purple-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
                   />
                 </div>
-                <button
-                  onClick={() => alert('Login functionality - Connect to your authentication system')}
-                  className="block w-full text-left px-3 py-2 text-gray-700 hover:text-purple-600 transition-colors duration-200"
-                >
-                  Login
-                </button>
-                <button
-                  onClick={() => alert('Sign Up functionality - Connect to your authentication system')}
-                  className="block w-full px-3 py-2 mt-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg hover:from-purple-700 hover:to-pink-700 transition-all duration-200 text-center"
-                >
-                  Sign Up
+                
+                <button className="block w-full px-3 py-2 mt-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg hover:from-purple-700 hover:to-pink-700 transition-all duration-200 text-center">
+                  <SignedOut>
+        <SignInButton />
+      </SignedOut>
+      <SignedIn>
+        <UserButton />
+      </SignedIn>
                 </button>
               </div>
             </div>

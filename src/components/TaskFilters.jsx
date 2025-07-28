@@ -22,7 +22,6 @@ const TaskFilters = ({ onOpenModal }) => {
 
   return (
     <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 mb-6">
-      {/* Stats */}
       <div className="grid grid-cols-3 gap-4 mb-6">
         <div className="text-center">
           <div className="text-2xl font-bold text-purple-600">{tasks.length}</div>
@@ -37,8 +36,6 @@ const TaskFilters = ({ onOpenModal }) => {
           <div className="text-sm text-gray-500">Pending</div>
         </div>
       </div>
-
-      {/* Search and Add */}
       <div className="flex flex-col sm:flex-row gap-4 mb-6">
         <div className="relative flex-1">
           <Search className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
@@ -58,15 +55,11 @@ const TaskFilters = ({ onOpenModal }) => {
           <span>Add Task</span>
         </button>
       </div>
-
-      {/* Filters */}
       <div className="flex flex-col lg:flex-row lg:items-center lg:space-x-6 space-y-4 lg:space-y-0">
         <div className="flex items-center space-x-2">
           <Filter className="h-4 w-4 text-gray-500" />
           <span className="text-sm font-medium text-gray-700">Filters:</span>
         </div>
-
-        {/* Status Filter */}
         <div className="flex space-x-2">
           {[
             { key: 'all', label: 'All', count: tasks.length },
@@ -86,8 +79,6 @@ const TaskFilters = ({ onOpenModal }) => {
             </button>
           ))}
         </div>
-
-        {/* Category Filter */}
         <select
           value={selectedCategory}
           onChange={(e) => setSelectedCategory(e.target.value)}
@@ -100,8 +91,6 @@ const TaskFilters = ({ onOpenModal }) => {
             </option>
           ))}
         </select>
-
-        {/* Priority Filter */}
         <select
           value={selectedPriority}
           onChange={(e) => setSelectedPriority(e.target.value)}
@@ -113,8 +102,6 @@ const TaskFilters = ({ onOpenModal }) => {
           <option value="low">Low Priority</option>
         </select>
       </div>
-
-      {/* Results Count */}
       <div className="mt-4 pt-4 border-t border-gray-200">
         <p className="text-sm text-gray-600">
           Showing {filteredTasks.length} of {tasks.length} tasks
